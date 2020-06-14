@@ -318,10 +318,11 @@ namespace FelixDev.StardewMods.FeTK.Framework.UI
                 // Draw the mail content for the current mail page.
                 else
                 {                    
+                    List<TextColorInfo> data = textColorDataPerPage?[page];
                     SpriteTextHelper.DrawString(b: b, s: mailMessage[page], x: this.xPositionOnScreen + 32, y: this.yPositionOnScreen + 32,
                         color: textColor, characterPosition: 999999,
                         width: this.width - 64, height: 999999, alpha: 0.75f, layerDepth: 0.865f,
-                        drawBGScroll: -1, placeHolderScrollWidthText: "", textColorDataPerPage?[page]);
+                        drawBGScroll: -1, placeHolderScrollWidthText: "", textColorMappings: data);
                 }
 
                 // Draw the attached items, if any.

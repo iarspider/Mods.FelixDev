@@ -131,6 +131,16 @@ namespace FelixDev.StardewMods.ToolUpgradeDeliveryService.Framework
             int daysLeftForToolUpgrade = Game1.player.daysLeftForToolUpgrade.Value;
             Tool upgradeTool = Game1.player.toolBeingUpgraded.Value;
 
+            if (upgradeTool == null)
+            {
+                return;
+            }
+
+            if (upgradeTool.GetType() == typeof(GenericTool))
+            { 
+                return;
+            }
+
             // If the tool upgrade is done by tomorrow, send a tool-upgrade mail for the next day.
             if (daysLeftForToolUpgrade == 1)
             {
